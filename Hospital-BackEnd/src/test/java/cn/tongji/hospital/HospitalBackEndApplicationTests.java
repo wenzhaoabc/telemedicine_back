@@ -29,12 +29,12 @@ class HospitalBackEndApplicationTests {
 
     @Test
     public void getPass() {
-//        String host = encryptor.encrypt("101.43.28.205");
-//        String password = encryptor.encrypt("password");
-//        System.out.println("database host: " + host);
-//        System.out.println("database password: " + password);
-//        Assert.assertTrue(host.length() > 0);
-//        Assert.assertTrue(password.length() > 0);
+        String host = encryptor.encrypt("aa");
+        String password = encryptor.encrypt("aa");
+        System.out.println("database host: " + host);
+        System.out.println("database password: " + password);
+        Assert.assertTrue(host.length() > 0);
+        Assert.assertTrue(password.length() > 0);
     }
 
 }
