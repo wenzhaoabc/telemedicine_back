@@ -1,12 +1,14 @@
 package cn.tongji.hospital.service.impl;
 
-import cn.tongji.hospital.mapper.TestMapper;
-import cn.tongji.hospital.model.Test;
+import cn.tongji.hospital.mapper.ActorMapper;
+import cn.tongji.hospital.mapper.PostCommentMapper;
+import cn.tongji.hospital.model.PostComment;
+import cn.tongji.hospital.model.PostCommentExample;
 import cn.tongji.hospital.service.RegisterService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import javax.websocket.server.ServerEndpoint;
+import java.util.List;
 
 /**
  * @Author : 王晨
@@ -14,14 +16,19 @@ import javax.websocket.server.ServerEndpoint;
  */
 @Service
 public class RegisterServiceImpl implements RegisterService {
+    @Resource
+    ActorMapper actorMapper;
 
     @Resource
-    TestMapper testMapper;
+    PostCommentMapper postCommentMapper;
 
-    @Override
-    public void registerTest(Long t) {
-        Test test=new Test();
-        test.setT(t);
-        testMapper.insert(test);
+    public void test(Long actorId){
+        PostCommentExample example=new PostCommentExample();
+        PostCommentExample.Criteria criteria=example.createCriteria();
+        criteria.andActorIdEqualTo(actorId);
+        List<PostComment> postComments = postCommentMapper.selectByExample(example);
+        for (PostComment postComment : postComments) {
+            postComment.setActorId(1L);
+        }
     }
 }

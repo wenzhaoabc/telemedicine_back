@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.tongji.hospital.mapper.TestMapper">
-  <resultMap id="BaseResultMap" type="cn.tongji.hospital.model.Test">
-    <id column="t" jdbcType="BIGINT" property="t" />
+<mapper namespace="cn.tongji.hospital.mapper.ChatMapper">
+  <resultMap id="BaseResultMap" type="cn.tongji.hospital.model.Chat">
+    <result column="record_id" jdbcType="BIGINT" property="recordId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="from_role" jdbcType="CHAR" property="fromRole" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="kind" jdbcType="CHAR" property="kind" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -63,15 +67,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    t
+    record_id, create_time, from_role, value, kind
   </sql>
-  <select id="selectByExample" parameterType="cn.tongji.hospital.model.TestExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="cn.tongji.hospital.model.ChatExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from test
+    from chat
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -79,44 +83,78 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from test
-    where t = #{t,jdbcType=BIGINT}
-  </delete>
-  <delete id="deleteByExample" parameterType="cn.tongji.hospital.model.TestExample">
-    delete from test
+  <delete id="deleteByExample" parameterType="cn.tongji.hospital.model.ChatExample">
+    delete from chat
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.tongji.hospital.model.Test">
-    insert into test (t)
-    values (#{t,jdbcType=BIGINT})
+  <insert id="insert" parameterType="cn.tongji.hospital.model.Chat">
+    insert into chat (record_id, create_time, from_role, 
+      value, kind)
+    values (#{recordId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{fromRole,jdbcType=CHAR}, 
+      #{value,jdbcType=VARCHAR}, #{kind,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.tongji.hospital.model.Test">
-    insert into test
+  <insert id="insertSelective" parameterType="cn.tongji.hospital.model.Chat">
+    insert into chat
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="t != null">
-        t,
+      <if test="recordId != null">
+        record_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="fromRole != null">
+        from_role,
+      </if>
+      <if test="value != null">
+        value,
+      </if>
+      <if test="kind != null">
+        kind,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="t != null">
-        #{t,jdbcType=BIGINT},
+      <if test="recordId != null">
+        #{recordId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="fromRole != null">
+        #{fromRole,jdbcType=CHAR},
+      </if>
+      <if test="value != null">
+        #{value,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null">
+        #{kind,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.tongji.hospital.model.TestExample" resultType="java.lang.Long">
-    select count(*) from test
+  <select id="countByExample" parameterType="cn.tongji.hospital.model.ChatExample" resultType="java.lang.Long">
+    select count(*) from chat
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update test
+    update chat
     <set>
-      <if test="record.t != null">
-        t = #{record.t,jdbcType=BIGINT},
+      <if test="record.recordId != null">
+        record_id = #{record.recordId,jdbcType=BIGINT},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.fromRole != null">
+        from_role = #{record.fromRole,jdbcType=CHAR},
+      </if>
+      <if test="record.value != null">
+        value = #{record.value,jdbcType=VARCHAR},
+      </if>
+      <if test="record.kind != null">
+        kind = #{record.kind,jdbcType=CHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -124,8 +162,12 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update test
-    set t = #{record.t,jdbcType=BIGINT}
+    update chat
+    set record_id = #{record.recordId,jdbcType=BIGINT},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      from_role = #{record.fromRole,jdbcType=CHAR},
+      value = #{record.value,jdbcType=VARCHAR},
+      kind = #{record.kind,jdbcType=CHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

@@ -24,7 +24,6 @@ public class RegisterController {
             @RequestParam(value = "t") Long t
     ){
         try {
-            registerService.registerTest(t);
             return ResponseEntity.ok("测试注册成功");
         }catch (Exception e){
             e.printStackTrace();
