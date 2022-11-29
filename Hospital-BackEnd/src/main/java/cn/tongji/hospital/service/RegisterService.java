@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface RegisterService {
-    void registerTest(Long t);
+
 }

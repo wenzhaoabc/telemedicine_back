@@ -3,14 +3,14 @@ package cn.tongji.hospital.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestExample {
+public class PostCommentPictureExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public TestExample() {
+    public PostCommentPictureExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,63 +104,133 @@ public class TestExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andTIsNull() {
-            addCriterion("t is null");
+        public Criteria andCommentIdIsNull() {
+            addCriterion("comment_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andTIsNotNull() {
-            addCriterion("t is not null");
+        public Criteria andCommentIdIsNotNull() {
+            addCriterion("comment_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTEqualTo(Long value) {
-            addCriterion("t =", value, "t");
+        public Criteria andCommentIdEqualTo(Long value) {
+            addCriterion("comment_id =", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTNotEqualTo(Long value) {
-            addCriterion("t <>", value, "t");
+        public Criteria andCommentIdNotEqualTo(Long value) {
+            addCriterion("comment_id <>", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTGreaterThan(Long value) {
-            addCriterion("t >", value, "t");
+        public Criteria andCommentIdGreaterThan(Long value) {
+            addCriterion("comment_id >", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTGreaterThanOrEqualTo(Long value) {
-            addCriterion("t >=", value, "t");
+        public Criteria andCommentIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("comment_id >=", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTLessThan(Long value) {
-            addCriterion("t <", value, "t");
+        public Criteria andCommentIdLessThan(Long value) {
+            addCriterion("comment_id <", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTLessThanOrEqualTo(Long value) {
-            addCriterion("t <=", value, "t");
+        public Criteria andCommentIdLessThanOrEqualTo(Long value) {
+            addCriterion("comment_id <=", value, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTIn(List<Long> values) {
-            addCriterion("t in", values, "t");
+        public Criteria andCommentIdIn(List<Long> values) {
+            addCriterion("comment_id in", values, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTNotIn(List<Long> values) {
-            addCriterion("t not in", values, "t");
+        public Criteria andCommentIdNotIn(List<Long> values) {
+            addCriterion("comment_id not in", values, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTBetween(Long value1, Long value2) {
-            addCriterion("t between", value1, value2, "t");
+        public Criteria andCommentIdBetween(Long value1, Long value2) {
+            addCriterion("comment_id between", value1, value2, "commentId");
             return (Criteria) this;
         }
 
-        public Criteria andTNotBetween(Long value1, Long value2) {
-            addCriterion("t not between", value1, value2, "t");
+        public Criteria andCommentIdNotBetween(Long value1, Long value2) {
+            addCriterion("comment_id not between", value1, value2, "commentId");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathIsNull() {
+            addCriterion("picture_path is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathIsNotNull() {
+            addCriterion("picture_path is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathEqualTo(String value) {
+            addCriterion("picture_path =", value, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathNotEqualTo(String value) {
+            addCriterion("picture_path <>", value, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathGreaterThan(String value) {
+            addCriterion("picture_path >", value, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathGreaterThanOrEqualTo(String value) {
+            addCriterion("picture_path >=", value, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathLessThan(String value) {
+            addCriterion("picture_path <", value, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathLessThanOrEqualTo(String value) {
+            addCriterion("picture_path <=", value, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathLike(String value) {
+            addCriterion("picture_path like", value, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathNotLike(String value) {
+            addCriterion("picture_path not like", value, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathIn(List<String> values) {
+            addCriterion("picture_path in", values, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathNotIn(List<String> values) {
+            addCriterion("picture_path not in", values, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathBetween(String value1, String value2) {
+            addCriterion("picture_path between", value1, value2, "picturePath");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturePathNotBetween(String value1, String value2) {
+            addCriterion("picture_path not between", value1, value2, "picturePath");
             return (Criteria) this;
         }
     }
