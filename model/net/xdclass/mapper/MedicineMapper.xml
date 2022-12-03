@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.xdclass.mapper.MedicineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.xdclass.model.MedicineDO">
+        <id column="medicine_id" property="medicineId" />
+        <result column="name" property="name" />
+        <result column="price" property="price" />
+        <result column="inventory" property="inventory" />
+        <result column="indication" property="indication" />
+        <result column="brand" property="brand" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        medicine_id, name, price, inventory, indication, brand
+    </sql>
+
+</mapper>

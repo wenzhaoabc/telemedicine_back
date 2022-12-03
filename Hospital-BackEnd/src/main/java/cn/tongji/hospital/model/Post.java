@@ -1,74 +1,39 @@
 package cn.tongji.hospital.model;
 
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class Post implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+      @TableId(value = "post_id", type = IdType.AUTO)
     private Long postId;
 
+    /**
+     * 发帖人id
+     */
     private Long actorId;
+
+    private String text;
 
     private String title;
 
     private Date createTime;
 
-    private String text;
 
-    private static final long serialVersionUID = 1L;
-
-    public Long getPostId() {
-        return postId;
-    }
-
-    public void setPostId(Long postId) {
-        this.postId = postId;
-    }
-
-    public Long getActorId() {
-        return actorId;
-    }
-
-    public void setActorId(Long actorId) {
-        this.actorId = actorId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", postId=").append(postId);
-        sb.append(", actorId=").append(actorId);
-        sb.append(", title=").append(title);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", text=").append(text);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
 }

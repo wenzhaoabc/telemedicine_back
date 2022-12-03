@@ -1,6 +1,7 @@
 package cn.tongji.hospital.mapper;
 
 import cn.tongji.hospital.model.PostComment;
+<<<<<<< Updated upstream
 import cn.tongji.hospital.model.PostCommentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -34,3 +35,18 @@ public interface PostCommentMapper {
 
     int updateByPrimaryKey(PostComment record);
 }
+=======
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * <p>
+ * 一级评论 Mapper 接口
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+public interface PostCommentMapper extends BaseMapper<PostComment> {
+
+}
+>>>>>>> Stashed changes

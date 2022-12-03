@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.xdclass.mapper.DiagnosisRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.xdclass.model.DiagnosisRecordDO">
+        <id column="record_id" property="recordId" />
+        <result column="patient_id" property="patientId" />
+        <result column="doctor_id" property="doctorId" />
+        <result column="state" property="state" />
+        <result column="review" property="review" />
+        <result column="advice" property="advice" />
+        <result column="review_score" property="reviewScore" />
+        <result column="price" property="price" />
+        <result column="start_time" property="startTime" />
+        <result column="pay_time" property="payTime" />
+        <result column="end_time" property="endTime" />
+        <result column="problem" property="problem" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        record_id, patient_id, doctor_id, state, review, advice, review_score, price, start_time, pay_time, end_time, problem
+    </sql>
+
+</mapper>

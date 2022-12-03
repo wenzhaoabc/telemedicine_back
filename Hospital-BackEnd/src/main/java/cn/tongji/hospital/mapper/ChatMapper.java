@@ -1,22 +1,18 @@
 package cn.tongji.hospital.mapper;
 
 import cn.tongji.hospital.model.Chat;
-import cn.tongji.hospital.model.ChatExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
-public interface ChatMapper {
-    long countByExample(ChatExample example);
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+@Repository
+public interface ChatMapper extends BaseMapper<Chat> {
 
-    int deleteByExample(ChatExample example);
-
-    int insert(Chat record);
-
-    int insertSelective(Chat record);
-
-    List<Chat> selectByExample(ChatExample example);
-
-    int updateByExampleSelective(@Param("record") Chat record, @Param("example") ChatExample example);
-
-    int updateByExample(@Param("record") Chat record, @Param("example") ChatExample example);
 }
