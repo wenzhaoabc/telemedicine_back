@@ -1,85 +1,50 @@
 package cn.tongji.hospital.model;
 
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+/**
+ * <p>
+ * 一级评论
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class PostComment implements Serializable {
-    private Long commentId;
-
-    private Long fatherId;
-
-    private Long actorId;
-
-    private Date createTime;
-
-    private Integer rootId;
-
-    private String text;
 
     private static final long serialVersionUID = 1L;
 
-    public Long getCommentId() {
-        return commentId;
-    }
+      @TableId(value = "comment_id", type = IdType.AUTO)
+    private Long commentId;
 
-    public void setCommentId(Long commentId) {
-        this.commentId = commentId;
-    }
+    /**
+     * 评论的评论的id
+     */
+    private Long fatherId;
 
-    public Long getFatherId() {
-        return fatherId;
-    }
+    /**
+     * 评论的文本内容
+     */
+    private String text;
 
-    public void setFatherId(Long fatherId) {
-        this.fatherId = fatherId;
-    }
+    private Long actorId;
 
-    public Long getActorId() {
-        return actorId;
-    }
+    /**
+     * 评论的时间
+     */
+    private Date createTime;
 
-    public void setActorId(Long actorId) {
-        this.actorId = actorId;
-    }
+    /**
+     * 评论的帖子的id
+     */
+    private Integer rootId;
 
-    public Date getCreateTime() {
-        return createTime;
-    }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getRootId() {
-        return rootId;
-    }
-
-    public void setRootId(Integer rootId) {
-        this.rootId = rootId;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", commentId=").append(commentId);
-        sb.append(", fatherId=").append(fatherId);
-        sb.append(", actorId=").append(actorId);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", rootId=").append(rootId);
-        sb.append(", text=").append(text);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
 }

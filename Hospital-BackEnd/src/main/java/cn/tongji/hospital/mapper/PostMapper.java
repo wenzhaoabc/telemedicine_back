@@ -1,6 +1,7 @@
 package cn.tongji.hospital.mapper;
 
 import cn.tongji.hospital.model.Post;
+<<<<<<< Updated upstream
 import cn.tongji.hospital.model.PostExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -34,3 +35,18 @@ public interface PostMapper {
 
     int updateByPrimaryKey(Post record);
 }
+=======
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+public interface PostMapper extends BaseMapper<Post> {
+
+}
+>>>>>>> Stashed changes

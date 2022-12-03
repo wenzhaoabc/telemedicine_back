@@ -1,6 +1,7 @@
 package cn.tongji.hospital.mapper;
 
 import cn.tongji.hospital.model.Medicine;
+<<<<<<< Updated upstream
 import cn.tongji.hospital.model.MedicineExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -28,3 +29,18 @@ public interface MedicineMapper {
 
     int updateByPrimaryKey(Medicine record);
 }
+=======
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+public interface MedicineMapper extends BaseMapper<Medicine> {
+
+}
+>>>>>>> Stashed changes

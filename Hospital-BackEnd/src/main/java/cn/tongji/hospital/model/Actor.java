@@ -1,5 +1,6 @@
 package cn.tongji.hospital.model;
 
+<<<<<<< Updated upstream:Hospital-BackEnd/src/main/java/cn/tongji/hospital/model/Actor.java
 import java.io.Serializable;
 
 public class Actor implements Serializable {
@@ -98,23 +99,62 @@ public class Actor implements Serializable {
     public void setDepartment(String department) {
         this.department = department;
     }
+=======
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import java.io.Serializable;
 
-    public Integer getSeviceYear() {
-        return seviceYear;
+import com.github.yitter.idgen.YitIdHelper;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
+public class Actor implements Serializable {
+    public static final int patient=0;
+    public static final int doctor=1;
+    public static final int female=0;
+    public static final int male=1;
+
+    private static final long serialVersionUID = 1L;
+    public Actor(String name, String pwd, String gender, Integer age, String phone){
+        this.actorId= YitIdHelper.nextId();
+        this.name=name;
+        this.password=pwd;
+        if(gender.equals("男"))
+            this.gender=male;
+        else
+            this.gender=female;
+        this.telephone=phone;
+        this.age=age;
+        /*默认头像和身份*/
+        this.photo="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fhbimg.huabanimg.com%2F07b029c67010c0a17a1c78fcbc92ce612de4cf3ae8dd-Oc4KXC_fw658&refer=http%3A%2F%2Fhbimg.huabanimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1672485726&t=80d1cd40a19072dff96fdb757c9efb76";
+        this.role=patient;
     }
 
-    public void setSeviceYear(Integer seviceYear) {
-        this.seviceYear = seviceYear;
-    }
+      @TableId(value = "actor_id", type = IdType.AUTO)
+    private Long actorId;
 
-    public String getHospital() {
-        return hospital;
-    }
+    private String password;
+>>>>>>> Stashed changes:Hospital-Backend/src/main/java/cn/tongji/hospital/model/Actor.java
 
-    public void setHospital(String hospital) {
-        this.hospital = hospital;
-    }
+    private String name;
 
+    private Integer role;
+
+    private String telephone;
+
+    private Integer age;
+
+<<<<<<< Updated upstream:Hospital-BackEnd/src/main/java/cn/tongji/hospital/model/Actor.java
     public Integer getIntroduction() {
         return introduction;
     }
@@ -122,62 +162,46 @@ public class Actor implements Serializable {
     public void setIntroduction(Integer introduction) {
         this.introduction = introduction;
     }
+=======
+    private Integer gender;
 
-    public String getField() {
-        return field;
-    }
+    private String department;
+>>>>>>> Stashed changes:Hospital-Backend/src/main/java/cn/tongji/hospital/model/Actor.java
 
-    public void setField(String field) {
-        this.field = field;
-    }
+    /**
+     * 医龄
+     */
+    private Integer seviceYear;
 
-    public Integer getScore() {
-        return score;
-    }
+    /**
+     * 所属医院
+     */
+    private String hospital;
 
-    public void setScore(Integer score) {
-        this.score = score;
-    }
+    /**
+     * 简介
+     */
+    private String introduction;
 
-    public String getPhoto() {
-        return photo;
-    }
+    /**
+     * 擅长
+     */
+    private String field;
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+    /**
+     * 平均评价分
+     */
+    private Integer score;
 
-    public Integer getPrice() {
-        return price;
-    }
+    /**
+     * 头像路径
+     */
+    private String photo;
 
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
+    /**
+     * 医生的咨询费
+     */
+    private Integer price;
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", actorId=").append(actorId);
-        sb.append(", password=").append(password);
-        sb.append(", name=").append(name);
-        sb.append(", role=").append(role);
-        sb.append(", telephone=").append(telephone);
-        sb.append(", age=").append(age);
-        sb.append(", gender=").append(gender);
-        sb.append(", department=").append(department);
-        sb.append(", seviceYear=").append(seviceYear);
-        sb.append(", hospital=").append(hospital);
-        sb.append(", introduction=").append(introduction);
-        sb.append(", field=").append(field);
-        sb.append(", score=").append(score);
-        sb.append(", photo=").append(photo);
-        sb.append(", price=").append(price);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+
 }

@@ -1,84 +1,40 @@
 package cn.tongji.hospital.model;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+@Data
+@EqualsAndHashCode(callSuper = false)
 public class Medicine implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+      @TableId(value = "medicine_id", type = IdType.AUTO)
     private Long medicineId;
 
     private String name;
 
     private Integer price;
 
+    /**
+     * 库存
+     */
     private Integer inventory;
 
     private Integer indication;
 
     private Integer brand;
 
-    private static final long serialVersionUID = 1L;
 
-    public Long getMedicineId() {
-        return medicineId;
-    }
-
-    public void setMedicineId(Long medicineId) {
-        this.medicineId = medicineId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public Integer getInventory() {
-        return inventory;
-    }
-
-    public void setInventory(Integer inventory) {
-        this.inventory = inventory;
-    }
-
-    public Integer getIndication() {
-        return indication;
-    }
-
-    public void setIndication(Integer indication) {
-        this.indication = indication;
-    }
-
-    public Integer getBrand() {
-        return brand;
-    }
-
-    public void setBrand(Integer brand) {
-        this.brand = brand;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", medicineId=").append(medicineId);
-        sb.append(", name=").append(name);
-        sb.append(", price=").append(price);
-        sb.append(", inventory=").append(inventory);
-        sb.append(", indication=").append(indication);
-        sb.append(", brand=").append(brand);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
 }
