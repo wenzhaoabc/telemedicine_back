@@ -1,105 +1,5 @@
 package cn.tongji.hospital.model;
 
-<<<<<<< Updated upstream:Hospital-BackEnd/src/main/java/cn/tongji/hospital/model/Actor.java
-import java.io.Serializable;
-
-public class Actor implements Serializable {
-    private Long actorId;
-
-    private String password;
-
-    private String name;
-
-    private String role;
-
-    private Integer telephone;
-
-    private Integer age;
-
-    private String gender;
-
-    private String department;
-
-    private Integer seviceYear;
-
-    private String hospital;
-
-    private Integer introduction;
-
-    private String field;
-
-    private Integer score;
-
-    private String photo;
-
-    private Integer price;
-
-    private static final long serialVersionUID = 1L;
-
-    public Long getActorId() {
-        return actorId;
-    }
-
-    public void setActorId(Long actorId) {
-        this.actorId = actorId;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Integer getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(Integer telephone) {
-        this.telephone = telephone;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-=======
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
@@ -144,7 +44,6 @@ public class Actor implements Serializable {
     private Long actorId;
 
     private String password;
->>>>>>> Stashed changes:Hospital-Backend/src/main/java/cn/tongji/hospital/model/Actor.java
 
     private String name;
 
@@ -154,19 +53,18 @@ public class Actor implements Serializable {
 
     private Integer age;
 
-<<<<<<< Updated upstream:Hospital-BackEnd/src/main/java/cn/tongji/hospital/model/Actor.java
-    public Integer getIntroduction() {
+    public String getIntroduction() {
         return introduction;
     }
 
-    public void setIntroduction(Integer introduction) {
+    public void setIntroduction(String introduction) {
         this.introduction = introduction;
     }
-=======
+
     private Integer gender;
 
     private String department;
->>>>>>> Stashed changes:Hospital-Backend/src/main/java/cn/tongji/hospital/model/Actor.java
+
 
     /**
      * 医龄
