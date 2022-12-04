@@ -1,30 +1,18 @@
 package cn.tongji.hospital.mapper;
 
 import cn.tongji.hospital.model.Actor;
-import cn.tongji.hospital.model.ActorExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.springframework.stereotype.Repository;
 
-public interface ActorMapper {
-    long countByExample(ActorExample example);
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author wc
+ * @since 2022-12-02
+ */
+@Repository
+public interface ActorMapper extends BaseMapper<Actor> {
 
-    int deleteByExample(ActorExample example);
-
-    int deleteByPrimaryKey(Long actorId);
-
-    int insert(Actor record);
-
-    int insertSelective(Actor record);
-
-    List<Actor> selectByExample(ActorExample example);
-
-    Actor selectByPrimaryKey(Long actorId);
-
-    int updateByExampleSelective(@Param("record") Actor record, @Param("example") ActorExample example);
-
-    int updateByExample(@Param("record") Actor record, @Param("example") ActorExample example);
-
-    int updateByPrimaryKeySelective(Actor record);
-
-    int updateByPrimaryKey(Actor record);
 }
