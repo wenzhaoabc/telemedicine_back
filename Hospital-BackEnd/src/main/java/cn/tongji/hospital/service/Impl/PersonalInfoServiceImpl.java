@@ -46,4 +46,23 @@ public class PersonalInfoServiceImpl implements PersonalInfoService {
         }
         return doctorInfoDtos;
     }
+
+    @Override
+    public DoctorInfoDto getDoctorInfo(Long doctorId) {
+        Actor doctor = actorMapper.selectById(doctorId);
+        DoctorInfoDto doctorInfoDto=new DoctorInfoDto();
+        doctorInfoDto.setDepartment(doctor.getDepartment());
+        doctorInfoDto.setAge(doctor.getAge());
+        doctorInfoDto.setGender(doctor.getGender());
+        doctorInfoDto.setName(doctor.getName());
+        doctorInfoDto.setField(doctor.getField());
+        doctorInfoDto.setHospital(doctor.getHospital());
+        doctorInfoDto.setIntroduction(doctor.getIntroduction());
+        doctorInfoDto.setScore(doctor.getScore());
+        doctorInfoDto.setPhoto(doctor.getPhoto());
+        doctorInfoDto.setActorId(doctor.getActorId());
+        doctorInfoDto.setTelephone(doctor.getTelephone());
+        doctorInfoDto.setSeviceYear(doctor.getSeviceYear());
+        return doctorInfoDto;
+    }
 }

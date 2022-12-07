@@ -12,4 +12,6 @@ import java.util.List;
 @Service
 public interface PersonalInfoService {
     List<DoctorInfoDto> getDoctorsInfo();
+
+    DoctorInfoDto getDoctorInfo(Long doctorId);
 }
