@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 自定义权限验证接口扩展
@@ -41,11 +42,10 @@ public class StpInterfaceImpl implements StpInterface {
         Actor actor = demoMapper.selectById((Serializable) loginId);
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询角色
         List<String> list = new ArrayList<String>();
-        if(actor.getRole()==actor.patient)
+        if(Objects.equals(actor.getRole(), "patient"))
             list.add("patient");
-        if(actor.getRole()==actor.doctor)
+        if(Objects.equals(actor.getRole(), "doctor"))
             list.add("doctor");
         return list;
     }
-
 }

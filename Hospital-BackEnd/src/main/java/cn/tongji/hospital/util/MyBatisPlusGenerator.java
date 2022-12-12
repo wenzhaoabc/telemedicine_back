@@ -52,11 +52,11 @@ public class MyBatisPlusGenerator {
         DataSourceConfig dsConfig = new DataSourceConfig();
         // 设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
-                .setDriverName("com.mysql.jdbc.Driver")
+                .setDriverName("com.mysql.cj.jdbc.Driver")
                 //TODO  TODO  TODO  TODO
-                .setUrl("jdbc:mysql://101.43.28.205:3306/hospital?useSSL=false")
+                .setUrl("jdbc:mysql://123.60.156.14:3306/telemedicine?useSSL=false")
                 .setUsername("root")
-                .setPassword("112233");
+                .setPassword("123abc");
 
         //3. 策略配置globalConfiguration中
         StrategyConfig stConfig = new StrategyConfig();
