@@ -1,12 +1,15 @@
 package cn.tongji.hospital.controller;
 
+import cn.tongji.hospital.dto.ImageUploadDto;
 import cn.tongji.hospital.model.Question;
 import cn.tongji.hospital.service.ForumQAService;
 import cn.tongji.hospital.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.rmi.server.ExportException;
 import java.util.List;
 
@@ -30,7 +33,6 @@ public class ForumController {
             return ResponseEntity.status(400).body(null);
         }
     }
-
 
 
     // 获取问题
@@ -71,6 +73,17 @@ public class ForumController {
         try {
             Long uId = Long.valueOf(userId);
             return ResponseEntity.ok(forumQAService.getUserBriefInfo(uId));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(400).body(null);
+        }
+    }
+
+    @PostMapping("/image")
+    public ResponseEntity<String> postImage(
+            @RequestBody ImageUploadDto file) {
+        try {
+            return ResponseEntity.ok(forumQAService.postImage(file));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(400).body(null);

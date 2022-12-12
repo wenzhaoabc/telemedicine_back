@@ -42,4 +42,18 @@ public class QuestionController {
             return ResponseEntity.status(400).body(null);
         }
     }
+
+    @GetMapping("/list")
+    public ResponseEntity<String> getQuestionList(
+            @RequestParam(value = "userId", defaultValue = "0") String userId,
+            @RequestParam(value = "hot", defaultValue = "null") String hot) {
+        try {
+            Long uId = Long.valueOf(userId);
+            String type = String.valueOf(hot);
+            return ResponseEntity.ok(questionService.getQuestionList(uId, hot));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(400).body(null);
+        }
+    }
 }

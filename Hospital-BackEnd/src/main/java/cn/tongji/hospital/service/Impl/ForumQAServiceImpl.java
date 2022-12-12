@@ -1,5 +1,6 @@
 package cn.tongji.hospital.service.Impl;
 
+import cn.tongji.hospital.dto.ImageUploadDto;
 import cn.tongji.hospital.dto.UserInfoDto;
 import cn.tongji.hospital.mapper.ActorMapper;
 import cn.tongji.hospital.mapper.AnswerMapper;
@@ -10,13 +11,17 @@ import cn.tongji.hospital.model.Answer;
 import cn.tongji.hospital.model.Question;
 import cn.tongji.hospital.model.UserAnswer;
 import cn.tongji.hospital.service.ForumQAService;
+import cn.tongji.hospital.service.OssService;
+import cn.tongji.hospital.util.ImageUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +39,9 @@ public class ForumQAServiceImpl implements ForumQAService {
 
     @Autowired
     private UserAnswerMapper userAnswerMapper;
+
+    @Autowired
+    private OssService ossService;
 
     @Override
     public String getTopicList(Integer pageSize, Integer offset, Long userId) {
@@ -104,5 +112,15 @@ public class ForumQAServiceImpl implements ForumQAService {
         userInfo.setSelfDesc(actor.getSelfDesc());
         userInfo.setGender(actor.getGender());
         return new Gson().toJson(userInfo);
+    }
+
+    @Override
+    public String postImage(ImageUploadDto file) {
+        System.out.println(file.toString());
+        MultipartFile multipartFile = ImageUtils.base64ToMultipartFile(file.getFile());
+        String location = ossService.uploadFile(multipartFile);
+        Map<String, Object> res = new HashMap<>();
+        res.put("location", location);
+        return new Gson().toJson(res);
     }
 }

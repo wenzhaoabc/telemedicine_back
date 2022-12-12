@@ -15,4 +15,8 @@ public interface QuestionService {
 
     // 获得某一用户的所有提问
     String getQuestionsByUser(long actorId);
+
+    // 获得问题列表
+    String getQuestionList(Long userId, String hot);
+
 }

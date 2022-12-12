@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="cn.tongji.hospital.mapper.QuestionMapper">
+
+    <select id="getLovedQuestions" resultType="cn.tongji.hospital.model.Question">
+        select telemedicine.t_question.*
+        from t_question,
+             t_like
+        where t_like.fan = #{userId}
+          and t_like.liked = t_question.actor_id
+    </select>
+</mapper>
