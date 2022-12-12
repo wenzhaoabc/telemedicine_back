@@ -40,7 +40,7 @@ public class ArticleServiceImpl implements ArticleService {
             articleItem.put("articleId", article.getArticleId());
             articleItem.put("actorId", article.getActorId());
             articleItem.put("title", article.getTitle());
-            articleItem.put("content", article.getContent().substring(0, 200));
+            articleItem.put("content", article.getContent().substring(0, 50));
             articleItem.put("createTime", article.getCreateTime());
             articleItem.put("upNum", article.getUpNum());
             articleItem.put("downNum", article.getDownNum());

@@ -13,7 +13,8 @@ public class ReviewController {
     private ReviewService reviewService;
 
     @GetMapping("/reviewList")
-    public ResponseEntity<String> getReviewList(@RequestParam("id") String id, @RequestParam("type") String type) {
+    public ResponseEntity<String> getReviewList(@RequestParam("id") String id,
+                                                @RequestParam("type") String type) {
         try {
             return ResponseEntity.ok(reviewService.getReviewList(id, type));
         } catch (Exception e) {
@@ -23,9 +24,21 @@ public class ReviewController {
     }
 
     @PostMapping("write")
-    public ResponseEntity<String> postReview(@RequestParam Review review) {
+    public ResponseEntity<String> postReview(@RequestBody Review review) {
         try {
             return ResponseEntity.ok(reviewService.postReview(review));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(400).body(null);
+        }
+    }
+
+    @GetMapping("/detailList")
+    public ResponseEntity<String> getDetailReviewList(
+            @RequestParam("type") String fatherType,
+            @RequestParam("id") String fatherId) {
+        try {
+            return ResponseEntity.ok(reviewService.getReviewListWithActor(fatherId, fatherType));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(400).body(null);

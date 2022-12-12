@@ -1,5 +1,6 @@
 package cn.tongji.hospital.model;
 
+import cn.tongji.hospital.model.temp.ReviewWithActor;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -16,4 +17,5 @@ public class Review {
     private String createTime;
     private Integer likeNum;
     private Integer starNum;
+
 }

@@ -16,4 +16,6 @@ public interface ReviewService {
      * @return 评论ID
      */
     String postReview(Review review);
+
+    String getReviewListWithActor(String father, String fatherType);
 }

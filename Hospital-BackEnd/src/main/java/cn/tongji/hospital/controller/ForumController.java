@@ -31,6 +31,8 @@ public class ForumController {
         }
     }
 
+
+
     // 获取问题
     @GetMapping("/question")
     public ResponseEntity<String> getQuestion(@RequestParam("qid") String qid) {
@@ -58,6 +60,17 @@ public class ForumController {
         try {
             String res = questionService.getQuestionsByUser(actorId);
             return ResponseEntity.ok(res);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(400).body(null);
+        }
+    }
+
+    @GetMapping("/userInfo")
+    public ResponseEntity<String> getBriefUserInfo(@RequestParam("userId") String userId) {
+        try {
+            Long uId = Long.valueOf(userId);
+            return ResponseEntity.ok(forumQAService.getUserBriefInfo(uId));
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(400).body(null);
